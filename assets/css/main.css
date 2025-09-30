@@ -5,6 +5,22 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-background);
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-medium);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.header__logo {
+    height: 40px;
+    width: auto;
 }
 
 /* Cases List Page */
@@ -31,14 +47,16 @@ body {
     display: block;
     text-decoration: none;
     color: inherit;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    border: var(--border-width) solid var(--color-border);
+    background-color: var(--color-background);
+    transition: all var(--transition-duration);
+    position: relative;
+    overflow: hidden;
 }
 
 .case-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    color: var(--color-background);
 }
 
 .case-card__content {
