@@ -24,7 +24,22 @@
             </p>
         </article>
     </main>
-    <script src="../assets/js/cases.js"></script>
+    <script type="module">
+        import { casesData } from '../assets/js/cases.js';
+        
+        function loadCaseDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const caseId = urlParams.get('id');
+            
+            if (caseId && casesData[caseId]) {
+                const caseData = casesData[caseId];
+                document.querySelector('.case-detail__title').textContent = caseData.title;
+                document.querySelector('.case-detail__text').textContent = caseData.content;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCaseDetails);
+    </script>
 </body>
 
 </html>
