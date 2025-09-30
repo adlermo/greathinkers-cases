@@ -39,7 +39,7 @@
             <!-- View de detalhes -->
             <main v-if="currentView === 'case'" class="case-detail" v-transition="slide">
                 <header class="case-detail__header">
-                    <a href="#" @click.prevent="goHome" class="case-detail__back">&lt; Voltar</a>
+                    <a href="#" @click.prevent="goHome" class="case-detail__back">Voltar</a>
                     <h1 class="case-detail__title">{{ selectedCase ? workshops[selectedCase].title : '' }}</h1>
                 </header>
                 

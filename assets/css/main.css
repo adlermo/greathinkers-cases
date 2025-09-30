@@ -88,17 +88,37 @@ body {
 }
 
 .case-detail__back {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-medium);
-    transition: color var(--transition-duration);
-    font-size: 1.1rem;
-    padding: var(--spacing-small) 0;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-large);
+    transition: all var(--transition-duration);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border: var(--border-width) solid var(--color-border);
+    position: relative;
+    background-color: var(--color-background);
+    letter-spacing: 0.5px;
+}
+
+.case-detail__back::before {
+    content: '←';  /* Seta mais elegante que < */
+    margin-right: var(--spacing-medium);
+    font-size: 1.2em;
+    line-height: 1;
+    transition: transform var(--transition-duration);
 }
 
 .case-detail__back:hover {
-    color: var(--color-text);
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    transform: translateX(-4px);
+}
+
+.case-detail__back:hover::before {
+    transform: translateX(-2px);
 }
 
 .case-detail__title {

@@ -13,31 +13,17 @@ function initApp() {
 
         // Métodos
         showCase(id) {
-            this.selectedCase = id;
-            this.currentView = 'case';
-            window.history.pushState({ id }, '', `?case=${id}`);
+            if (this.workshops[id]) {
+                this.selectedCase = id;
+                this.currentView = 'case';
+            }
         },
 
         goHome() {
             this.selectedCase = null;
             this.currentView = 'home';
-            window.history.pushState({}, '', './');
-        },
-
-        handlePopState() {
-            const params = new URLSearchParams(window.location.search);
-            const caseId = params.get('case');
-            
-            if (caseId && this.workshops[caseId]) {
-                this.showCase(caseId);
-            } else {
-                this.goHome();
-            }
         }
     }).mount('#app');
-
-    // Configura o handler para o botão voltar do navegador
-    window.addEventListener('popstate', () => app.handlePopState());
 }
 
 // Verifica se o Petite-Vue já está carregado
